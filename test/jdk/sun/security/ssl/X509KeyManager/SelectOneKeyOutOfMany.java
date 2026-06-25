@@ -39,6 +39,8 @@
 import java.io.*;
 import java.net.*;
 import java.security.*;
+import java.util.Arrays;
+
 import javax.net.ssl.*;
 
 public class SelectOneKeyOutOfMany {
@@ -156,6 +158,7 @@ public class SelectOneKeyOutOfMany {
          */
         resultsRsaDsa = km.chooseClientAlias(rsaDsa, null, null);
         if ((resultsRsaDsa == null) || (resultsRsaDsa != resultsRsa)) {
+            System.out.println("RSA, DSA results: " + resultsRsaDsa);
             throw new Exception("km.chooseClientAlias(rsaDsa) failed");
         }
         System.out.println("km.chooseClientAlias(rsaDsa) passed");
